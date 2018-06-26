@@ -1,0 +1,10 @@
+<div class="card domotic status">
+    <ul>
+        <li><span class="big">{{ status.elec }} Wh</span><br><span class="mini">électricité (1h)</span></li>
+        <li><span class="big">{{ status.temp.exterieur|number_format(1) }} °C </span><br><span class="mini">extérieur</span></li>
+        <li><span class="big">{{ status.temp.chambre|number_format(1) }} °C </span><br><span class="mini">chambre</span></li>
+        <li><span class="big">{{ status.temp.salon|number_format(1) }} °C </span><br><span class="mini">salon</span></li>
+    </ul>
+</div>
+
+

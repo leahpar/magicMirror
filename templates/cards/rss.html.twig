@@ -1,0 +1,13 @@
+<div class="card rss">
+    {% for feed in feeds %}
+        <p style="display: none">
+            <span class="title">{{ feed.title }}</span>
+            <br>
+            <span class="source">{{ feed.attributes.source }}</span>
+            -
+            <span class="date">{{ feed.pubDate|localizeddate("medium", "short", "fr") }}</span>
+            <br>
+            <span class="text">{{ feed.description }}</span>
+        </p>
+    {% endfor %}
+</div>

@@ -1,0 +1,65 @@
+<div class="card meteo">
+
+    <div class="head">
+        <div>
+            <img src="{{ asset("img/meteo/" ~ weather.weather.icon|weatherIcon) }}" width="150px">
+        </div>
+
+        <div>
+            <span class="tempCur">
+            {{ weather.temperature.now.value|number_format(1) }}°C
+            </span>
+            <br>
+            <span class="tempMin">
+                {{ weather.temperature.min.value|round }}°C /
+                {{ weather.temperature.max.value|round }}°C
+            </span>
+        </div>
+    </div>
+
+    <!--
+    <table>
+        <tr>
+        <tr>
+            <td>Pression</td>
+            <td>{{ weather.pressure }}</td>
+        </tr>
+        <tr>
+            <td>Humidité</td>
+            <td>{{ weather.humidity }}</td>
+        </tr>
+        <tr>
+            <td>Nuages</td>
+            <td>{{ weather.clouds.description }}</td>
+        </tr>
+        <tr>
+            <td>Précipitations</td>
+            <td>{{ weather.precipitation.description }}</td>
+        </tr>
+        <tr>
+            <td>Soleil</td>
+            <td>{{ weather.sun.rise|date("H:i") }} => {{ weather.sun.set|date("H:i") }}</td>
+        </tr>
+        <tr>
+            <td>Vent</td>
+            <td>{{ weather.wind.speed.formatted }} {{ weather.wind.direction.formatted }}</td>
+        </tr>
+    </table>
+    -->
+
+    <ul>
+        {% for weather in forecast %}
+            <li>
+                {% if weather.time.day.date|ddate is null %}
+                    {{ weather.time.day.date|date("d/m") }}
+                {% else %}
+                    {{ weather.time.day.date|ddate|capitalize }}
+                {% endif %}
+                {{ weather.time.from|date("H") }}h
+                <img src="{{ asset("img/meteo/" ~ weather.weather.icon|weatherIcon) }}" width="20px">
+                {{ weather.temperature.now.value|number_format(1) }}°C
+            </li>
+        {% endfor %}
+    </ul>
+
+</div>

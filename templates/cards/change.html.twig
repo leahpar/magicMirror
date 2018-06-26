@@ -1,0 +1,11 @@
+<div class="card change">
+    <ul>
+    {% for c in change %}
+        <li>
+            <span class="big">1 {{ c.symbol }} = {{ c.value|number_format(2, '.', ' ') }} €</span>
+            <br>
+            <span class="mini">{{ c.currency }}</span>
+        </li>
+    {% endfor %}
+    </ul>
+</div>

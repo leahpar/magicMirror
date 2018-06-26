@@ -1,0 +1,107 @@
+body {
+  background-color: black;
+  color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em; }
+
+h2 {
+  color: #FFFFFF; }
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; }
+
+.card {
+  margin: 10px;
+  padding: 10px;
+  flex-grow: 1;
+  flex-basis: 0; }
+
+.horloge {
+  text-align: center; }
+  .horloge .time {
+    color: #FFFFFF;
+    font-size: 6em; }
+  .horloge .date {
+    color: #AAAAAA;
+    font-size: 1.5em;
+    letter-spacing: 8px; }
+
+.fifa {
+  max-height: 30vh;
+  overflow: hidden; }
+  .fifa .logo {
+    filter: invert(100%); }
+  .fifa .match {
+    font-size: larger;
+    color: #FFFFFF; }
+  .fifa .date {
+    color: #AAAAAA; }
+
+.meteoCurrent .head {
+  display: flex;
+  align-items: center;
+  text-align: center; }
+  .meteoCurrent .head div {
+    flex-grow: 1; }
+  .meteoCurrent .head .temp {
+    font-size: 6em; }
+  .meteoCurrent .head .text {
+    color: #AAAAAA;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    letter-spacing: 5px; }
+
+.meteoForecast {
+  text-align: left; }
+
+.rss {
+  text-align: center; }
+  .rss .title {
+    font-size: 1.5em; }
+  .rss .source {
+    line-height: 50px;
+    color: #AAAAAA; }
+  .rss .date {
+    color: #AAAAAA; }
+
+.domotic.status {
+  text-align: right; }
+  .domotic.status ul {
+    list-style: none;
+    padding: 0; }
+  .domotic.status li {
+    margin-bottom: 20px; }
+  .domotic.status .big {
+    color: #FFFFFF;
+    font-size: 3em; }
+  .domotic.status .mini {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #AAAAAA;
+    font-size: 0.8em; }
+
+.change ul {
+  list-style: none;
+  padding: 0; }
+
+.change li {
+  margin-bottom: 20px; }
+
+.change .big {
+  color: #FFFFFF;
+  font-size: 3em; }
+
+.change .mini {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #AAAAAA;
+  font-size: 0.8em; }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,20 @@
+<div class="card meteoCurrent">
+    <div class="head">
+        <div>
+            <img src="{{ asset("img/meteo/" ~ meteo.WeatherIcon) }}" width="150px">
+        </div>
+
+        <div>
+            <span class="temp">
+            {{ meteo.Temperature.Metric.Value|number_format(1) }}°C
+            </span>
+            <br>
+            <span class="text">
+                {{ meteo.WeatherText }}
+                <br>
+                <i class="material-icons">arrow_upward</i> {{ meteo.sunrise|date("H:i") }}
+                <i class="material-icons">arrow_downward</i> {{ meteo.sunset|date("H:i") }}
+            </span>
+        </div>
+    </div>
+</div>

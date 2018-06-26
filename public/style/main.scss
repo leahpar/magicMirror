@@ -1,0 +1,171 @@
+
+$color1: #FFFFFF;
+$color2: #AAAAAA;
+
+
+body {
+  background-color: black;
+  color: $color1;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+}
+
+h2 {
+  color: $color1;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+}
+
+.card {
+  //outline: 1px solid gray;
+  margin: 10px;
+  padding: 10px;
+
+  flex-grow: 1;
+  flex-basis: 0;
+
+  //overflow: hidden;
+}
+
+.horloge {
+
+  text-align: center;
+
+  .time {
+    color: $color1;
+    font-size: 6em;
+  }
+  .date {
+    color: $color2;
+    font-size: 1.5em;
+    letter-spacing: 8px;
+  }
+}
+
+.fifa {
+
+  max-height: 30vh;
+  overflow: hidden;
+
+
+  .logo {
+    //filter: grayscale(100%);
+    filter: invert(100%);
+  }
+
+  .match {
+    font-size: larger;
+    color: $color1;
+  }
+  .date {
+    color: $color2;
+  }
+
+  // TODO : fondu sortant en bas
+
+}
+
+.meteoCurrent {
+
+  .head {
+    display: flex;
+    align-items: center;
+
+    text-align: center;
+
+    div {
+      flex-grow: 1;
+    }
+
+    .temp {
+      font-size: 6em;
+    }
+    .text {
+      color: $color2;
+      text-transform: uppercase;
+      font-size: 1.2em;
+      letter-spacing: 5px;
+    }
+  }
+
+  // TODO : fondu sortant en bas
+}
+
+.meteoForecast {
+  text-align: left;
+
+}
+
+.rss {
+  text-align: center;
+  .title {
+    font-size: 1.5em;
+  }
+  .source {
+    line-height: 50px;
+    color: $color2;
+  }
+  .date {
+    color: $color2;
+  }
+}
+
+
+.domotic {
+
+  &.status {
+
+    text-align: right;
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 20px;
+    }
+    .big {
+      color: $color1;
+      font-size: 3em;
+    }
+    .mini {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: $color2;
+      font-size: 0.8em;
+    }
+
+  }
+}
+.change {
+
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  li {
+    margin-bottom: 20px;
+  }
+  .big {
+    color: $color1;
+    font-size: 3em;
+  }
+  .mini {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: $color2;
+    font-size: 0.8em;
+  }
+
+}

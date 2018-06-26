@@ -1,0 +1,38 @@
+<div class="card meteoForecast">
+    <span class="tendance">
+        {{ meteo.Headline.Text }}
+    </span>
+    <table>
+        {% for day in meteo.DailyForecasts %}
+        <tr>
+            <td colspan="2">
+                {% if day.Date|ddate is null %}
+                    {{ day.Date|date("d/m") }}
+                {% else %}
+                    {{ day.Date|ddate }}
+                {% endif %}
+            </td>
+           <td>
+               <div style="float: left">
+                   <img src="{{ asset("img/meteo/" ~ day.Day.WeatherIcon) }}" width="30px">
+               </div>
+               <div style="float: left">
+                   {{ day.Temperature.Maximum.Value }}°C
+                   <br>
+                   {{ day.Day.IconPhrase }}
+               </div>
+           </td>
+           <td>
+               <div style="float: left">
+                   <img src="{{ asset("img/meteo/" ~ day.Night.WeatherIcon) }}" width="30px">
+               </div>
+               <div style="float: left">
+                   {{ day.Temperature.Minimum.Value }}°C
+                   <br>
+                   {{ day.Night.IconPhrase }}
+               </div>
+           </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>

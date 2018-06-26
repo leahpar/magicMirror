@@ -1,0 +1,17 @@
+<div class="card fifa">
+    <img class="logo" src="{{ asset('img/fifa-2018.png') }}" width="300px">
+    {% for event in events %}
+        <p>
+            <span class="date">
+            {% if event.dtstart|ddate is null %}
+                {{ event.dtstart|date("d/m H") }}h
+            {% else %}
+                {{ event.dtstart|ddate|capitalize }} {{ event.dtstart|date("H") }}h
+            {% endif %}
+            </span>
+            <br>
+            <span class="match">{{ event.summary }}</span>
+            <!--<em>{{ event.location }}</em>-->
+        </p>
+    {% endfor %}
+</div>
