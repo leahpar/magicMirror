@@ -23,6 +23,14 @@ h2 {
   flex-grow: 1;
   flex-basis: 0; }
 
+.error {
+  text-align: center;
+  color: orange;
+  background-color: rgba(255, 0, 0, 0.3);
+  text-transform: uppercase;
+  font-size: 1.2em;
+  letter-spacing: 5px; }
+
 .horloge {
   text-align: center; }
   .horloge .time {
@@ -34,7 +42,7 @@ h2 {
     letter-spacing: 8px; }
 
 .fifa {
-  max-height: 30vh;
+  max-height: 50vh;
   overflow: hidden; }
   .fifa .logo {
     filter: invert(100%); }
@@ -87,21 +95,45 @@ h2 {
     color: #AAAAAA;
     font-size: 0.8em; }
 
-.change ul {
-  list-style: none;
-  padding: 0; }
+.change {
+  text-align: right; }
+  .change ul {
+    list-style: none;
+    padding: 0; }
+  .change li {
+    margin-bottom: 20px; }
+  .change .big {
+    color: #FFFFFF;
+    font-size: 3em; }
+  .change .mini {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #AAAAAA;
+    font-size: 0.8em; }
 
-.change li {
-  margin-bottom: 20px; }
-
-.change .big {
-  color: #FFFFFF;
-  font-size: 3em; }
-
-.change .mini {
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: #AAAAAA;
-  font-size: 0.8em; }
+.bourse {
+  text-align: right; }
+  .bourse ul {
+    list-style: none;
+    padding: 0; }
+  .bourse li {
+    margin-bottom: 20px; }
+  .bourse .name {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #AAAAAA;
+    font-size: 0.8em; }
+  .bourse .symbol {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #AAAAAA;
+    font-size: 0.8em; }
+  .bourse .price {
+    color: #FFFFFF;
+    font-size: 3em; }
+  .bourse .change.up {
+    color: #4cae4c; }
+  .bourse .change.down {
+    color: #B0413E; }
 
 /*# sourceMappingURL=main.css.map */

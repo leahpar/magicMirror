@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce4442723ee5866d13c9620ed378e8ad",
+    "content-hash": "4f648d86912d52c14932214e77a04474",
     "packages": [
         {
             "name": "cmfcmf/openweathermap-php-api",
@@ -642,31 +642,24 @@
         },
         {
             "name": "influxdb/influxdb-php",
-            "version": "1.14.5",
+            "version": "1.14.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/influxdata/influxdb-php.git",
-                "reference": "64c79de3f3e0e7f8c20b5fc51f50da8736767de9"
+                "reference": "4e571ea56cd37bb9cda4938f9fdfbb228ef3337a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/influxdata/influxdb-php/zipball/64c79de3f3e0e7f8c20b5fc51f50da8736767de9",
-                "reference": "64c79de3f3e0e7f8c20b5fc51f50da8736767de9",
+                "url": "https://api.github.com/repos/influxdata/influxdb-php/zipball/4e571ea56cd37bb9cda4938f9fdfbb228ef3337a",
+                "reference": "4e571ea56cd37bb9cda4938f9fdfbb228ef3337a",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^6.0",
-                "php": "^5.5 || ^7.0",
-                "symfony/event-dispatcher": "^2.0 || ^3.0 || ^4.0"
+                "php": "^5.5 || ^7.0"
             },
             "require-dev": {
-                "codeclimate/php-test-reporter": "0.*",
-                "symfony/config": "~2.8|~3.0|~4.0",
-                "symfony/console": "~2.8|~3.0|~4.0",
-                "symfony/filesystem": "~2.8|~3.0|~4.0",
-                "symfony/phpunit-bridge": "^3.4 || ^4.0",
-                "symfony/stopwatch": "~2.8|~3.0|~4.0",
-                "symfony/yaml": "~2.8|~3.0|~4.0"
+                "phpunit/phpunit": "^5.7"
             },
             "suggest": {
                 "stefanotorresi/influxdb-php-async": "An asyncronous client for InfluxDB, implemented via ReactPHP."
@@ -705,7 +698,7 @@
                 "influxdb library",
                 "time series"
             ],
-            "time": "2018-01-03T13:09:43+00:00"
+            "time": "2018-06-19T07:09:48+00:00"
         },
         {
             "name": "johngrogg/ics-parser",
@@ -769,16 +762,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.31.0",
+            "version": "1.32.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "4dbe0e51d24a4c7e000999324d21fc25edbf7b05"
+                "reference": "64563e2b9f69e4db1b82a60e81efa327a30ff343"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/4dbe0e51d24a4c7e000999324d21fc25edbf7b05",
-                "reference": "4dbe0e51d24a4c7e000999324d21fc25edbf7b05",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/64563e2b9f69e4db1b82a60e81efa327a30ff343",
+                "reference": "64563e2b9f69e4db1b82a60e81efa327a30ff343",
                 "shasum": ""
             },
             "require": {
@@ -820,7 +813,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-06-24T14:32:22+00:00"
+            "time": "2018-07-05T06:59:26+00:00"
         },
         {
             "name": "psr/cache",
@@ -1064,23 +1057,23 @@
         },
         {
             "name": "sensio/framework-extra-bundle",
-            "version": "v5.1.6",
+            "version": "v5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "bf4940572e43af679aaa13be98f3446a1c237bd8"
+                "reference": "50e8b7292425957b8fd66887504430c89bcbd83c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/bf4940572e43af679aaa13be98f3446a1c237bd8",
-                "reference": "bf4940572e43af679aaa13be98f3446a1c237bd8",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/50e8b7292425957b8fd66887504430c89bcbd83c",
+                "reference": "50e8b7292425957b8fd66887504430c89bcbd83c",
                 "shasum": ""
             },
             "require": {
                 "doctrine/common": "^2.2",
                 "symfony/config": "^3.3|^4.0",
                 "symfony/dependency-injection": "^3.3|^4.0",
-                "symfony/framework-bundle": "^3.3|^4.0",
+                "symfony/framework-bundle": "^3.4|^4.0",
                 "symfony/http-kernel": "^3.3|^4.0"
             },
             "require-dev": {
@@ -1090,6 +1083,8 @@
                 "symfony/dom-crawler": "^3.3|^4.0",
                 "symfony/expression-language": "^3.3|^4.0",
                 "symfony/finder": "^3.3|^4.0",
+                "symfony/monolog-bridge": "^3.0|^4.0",
+                "symfony/monolog-bundle": "^3.2",
                 "symfony/phpunit-bridge": "^3.3|^4.0",
                 "symfony/psr-http-message-bridge": "^0.3",
                 "symfony/security-bundle": "^3.3|^4.0",
@@ -1106,7 +1101,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.1.x-dev"
+                    "dev-master": "5.2.x-dev"
                 }
             },
             "autoload": {
@@ -1129,7 +1124,65 @@
                 "annotations",
                 "controllers"
             ],
-            "time": "2018-02-14T08:40:54+00:00"
+            "time": "2018-05-12T09:37:42+00:00"
+        },
+        {
+            "name": "sqmk/phue",
+            "version": "v1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sqmk/Phue.git",
+                "reference": "78c7e94578d0fefe5378075bd52c23aff35a4ad3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sqmk/Phue/zipball/78c7e94578d0fefe5378075bd52c23aff35a4ad3",
+                "reference": "78c7e94578d0fefe5378075bd52c23aff35a4ad3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "1.0.0",
+                "phpunit/phpunit": "5.7.25",
+                "squizlabs/php_codesniffer": "3.1.1"
+            },
+            "suggest": {
+                "ext-curl": "Allows usage of cURL transport adapter"
+            },
+            "bin": [
+                "bin/phue-create-user",
+                "bin/phue-bridge-finder",
+                "bin/phue-light-finder",
+                "bin/phue-list-lights"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Phue": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Squires",
+                    "email": "sqmk@php.net",
+                    "role": "lead"
+                }
+            ],
+            "description": "Phue - Philips Hue PHP client",
+            "homepage": "http://github.com/sqmk/Phue",
+            "keywords": [
+                "client",
+                "hue",
+                "philips",
+                "phue"
+            ],
+            "time": "2017-12-01T21:56:14+00:00"
         },
         {
             "name": "symfony/apache-pack",

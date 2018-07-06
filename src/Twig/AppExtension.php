@@ -18,9 +18,10 @@ class AppExtension extends AbstractExtension
     /**
      * https://stackoverflow.com/questions/25622370/php-how-to-check-if-a-date-is-today-yesterday-or-tomorrow
      * @param string $str
+     * @param string|null $format
      * @return null
      */
-    public function ddate(string $str)
+    public function ddate(string $str, string $format = null)
     {
         $date = new \DateTime($str);
         $currentTime = strtotime('today');
@@ -39,7 +40,7 @@ class AppExtension extends AbstractExtension
                 return 'demain';
                 break;
         }
-        return null;
+        return $format ? $date->format($format) : null;
     }
     
     public function weatherIcon(string $code)

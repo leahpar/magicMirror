@@ -68,6 +68,9 @@
             "ref": "aaddfdf43cdecd4cf91f992052d76c2cadc04543"
         }
     },
+    "sqmk/phue": {
+        "version": "v1.7.0"
+    },
     "symfony/apache-pack": {
         "version": "1.0",
         "recipe": {

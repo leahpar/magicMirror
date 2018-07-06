@@ -1,0 +1,21 @@
+<div class="card bourse">
+
+    <ul>
+    {% for stock in stocks %}
+    <li>
+        <span class="change {{ stock.change > 0 ? "up" : "down" }}">
+            {{ stock.change >= 0 ? "+" : "-" }}
+            {{ stock.change|abs|number_format(1) }}
+            ({{ (stock.changePercent*100)|number_format(1) }}%)
+        </span>
+        <span class="price">{{ stock.latestPrice|number_format(2, '.', ' ') }} $</span>
+        <br>
+        <span class="name">{{ stock.companyName }}</span>
+        <span class="symbol">[ {{ stock.symbol }} ]</span>
+    </li>
+    {% endfor %}
+    </ul>
+
+</div>
+
+

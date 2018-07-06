@@ -34,8 +34,15 @@ h2 {
 
   flex-grow: 1;
   flex-basis: 0;
+}
 
-  //overflow: hidden;
+.error {
+  text-align: center;
+  color: orange;
+  background-color: rgba(255, 0, 0, 0.3);
+  text-transform: uppercase;
+  font-size: 1.2em;
+  letter-spacing: 5px;
 }
 
 .horloge {
@@ -55,11 +62,10 @@ h2 {
 
 .fifa {
 
-  max-height: 30vh;
+  max-height: 50vh;
   overflow: hidden;
 
-
-  .logo {
+.logo {
     //filter: grayscale(100%);
     filter: invert(100%);
   }
@@ -148,6 +154,7 @@ h2 {
   }
 }
 .change {
+  text-align: right;
 
 
   ul {
@@ -166,6 +173,47 @@ h2 {
     letter-spacing: 3px;
     color: $color2;
     font-size: 0.8em;
+  }
+
+}
+
+.bourse {
+  text-align: right;
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  li {
+    margin-bottom: 20px;
+  }
+
+  .name {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: $color2;
+    font-size: 0.8em;
+  }
+
+  .symbol {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: $color2;
+    font-size: 0.8em;
+  }
+
+  .price {
+    color: $color1;
+    font-size: 3em;
+  }
+
+  .change {
+    &.up {
+      color: #4cae4c;
+    }
+    &.down {
+      color: #B0413E;
+    }
   }
 
 }

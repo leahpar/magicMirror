@@ -1,9 +1,26 @@
 <div class="card domotic status">
     <ul>
-        <li><span class="big">{{ status.elec }} Wh</span><br><span class="mini">électricité (1h)</span></li>
-        <li><span class="big">{{ status.temp.exterieur|number_format(1) }} °C </span><br><span class="mini">extérieur</span></li>
-        <li><span class="big">{{ status.temp.chambre|number_format(1) }} °C </span><br><span class="mini">chambre</span></li>
-        <li><span class="big">{{ status.temp.salon|number_format(1) }} °C </span><br><span class="mini">salon</span></li>
+        <li>
+            <span class="big">{{ status.elec ? status.elec|number_format(1) : "--" }} Wh</span>
+            <br>
+            <span class="mini">Électricité (1h)</span>
+        </li>
+
+        <li>
+            <span class="big">{{ status.temp ? status.temp.exterieur|number_format(1) : "--" }} °C</span>
+            <br>
+            <span class="mini">Extérieur</span>
+        </li>
+        <li>
+            <span class="big">{{ status.temp ? status.temp.chambre|number_format(1) : "--" }} °C</span>
+            <br>
+            <span class="mini">Chambre</span>
+        </li>
+        <li>
+            <span class="big">{{ status.temp ? status.temp.salon|number_format(1) : "--" }} °C</span>
+            <br>
+            <span class="mini">Salon</span>
+        </li>
     </ul>
 </div>
 

@@ -3,60 +3,89 @@
 namespace App\Controller;
 
 
-use Psr\SimpleCache\CacheInterface;
+use App\Services\SimpleApiService;
+use Psr\SimpleCache\CacheException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 
 class MeteoController extends AbstractController
 {
 
     const API_URL = "http://dataservice.accuweather.com/";
+
     /**
-     * @var CacheInterface
+     * @var SimpleApiService
      */
-    private $cache;
+    private $api;
 
     /**
      * MeteoController constructor.
-     * @param CacheInterface $cache
+     * @param SimpleApiService $api
      */
-    public function __construct(CacheInterface $cache)
+    public function __construct(SimpleApiService $api)
     {
-        $this->cache = $cache;
+        $this->api = $api;
     }
 
 
     public function currentMeteoAction()
     {
-        $url = $this->buildUrl("current");
-        $meteo = $this->getData($url)[0];
+        try {
+            $url = $this->buildUrl("current");
+            $meteo = $this->api->getData($url, rand(1000, 1500))[0];
 
-        $meteo["WeatherIcon"] = $this->getIcon($meteo["WeatherIcon"]);
+            $meteo["WeatherIcon"] = $this->getIcon($meteo["WeatherIcon"]);
 
-        $url = $this->buildUrl("forecast");
-        $forecast = $this->getData($url);
-        //dump($forecast); die();
-        $meteo["sunrise"] = $forecast["DailyForecasts"][0]["Sun"]["Rise"];
-        $meteo["sunset"]  = $forecast["DailyForecasts"][0]["Sun"]["Set"];
+            $url = $this->buildUrl("forecast");
+            $forecast = $this->api->getData($url, rand(1500, 2000));
+            //dump($forecast); die();
+            $meteo["sunrise"] = $forecast["DailyForecasts"][0]["Sun"]["Rise"];
+            $meteo["sunset"] = $forecast["DailyForecasts"][0]["Sun"]["Set"];
 
-
-        return $this->render("cards/meteo-current.html.twig", [
-            "meteo" => $meteo
-        ]);
+            return $this->render("cards/meteo-current.html.twig", [
+                "meteo" => $meteo
+            ]);
+        }
+        catch (CacheException $e) {
+            return $this->render("cards/error.html.twig", [
+                "message" => "Erreur de cache API taux change"
+            ]);
+        }
+        catch (\Exception $e) {
+            return $this->render("cards/error.html.twig", [
+                "message" => "Echec de connexion API météo"
+            ]);
+        }
     }
 
+    /**
+     * @return Response
+     */
     public function forecastMeteoAction()
     {
-        $url = $this->buildUrl("forecast");
-        $meteo = $this->getData($url);
+        try {
+            $url = $this->buildUrl("forecast");
+            $meteo = $this->api->getData($url, rand(1500, 2000));
 
-        foreach ($meteo["DailyForecasts"] as $k => $v) {
-            $meteo["DailyForecasts"][$k]["Day"]["WeatherIcon"] = $this->getIcon($v["Day"]["Icon"]);
-            $meteo["DailyForecasts"][$k]["Night"]["WeatherIcon"] = $this->getIcon($v["Night"]["Icon"]);
+            foreach ($meteo["DailyForecasts"] as $k => $v) {
+                $meteo["DailyForecasts"][$k]["Day"]["WeatherIcon"] = $this->getIcon($v["Day"]["Icon"]);
+                $meteo["DailyForecasts"][$k]["Night"]["WeatherIcon"] = $this->getIcon($v["Night"]["Icon"]);
+            }
+
+            return $this->render("cards/meteo-forecast.html.twig", [
+                "meteo" => $meteo
+            ]);
         }
-
-        return $this->render("cards/meteo-forecast.html.twig", [
-            "meteo" => $meteo
-        ]);
+        catch (CacheException $e) {
+            return $this->render("cards/error.html.twig", [
+                "message" => "Erreur de cache API taux change"
+            ]);
+        }
+        catch (\Exception $e) {
+            return $this->render("cards/error.html.twig", [
+                "message" => "Echec de connexion API météo"
+            ]);
+        }
     }
 
     /**
@@ -152,7 +181,6 @@ class MeteoController extends AbstractController
 
     /**
      * @param string $type
-     * @param bool $detail
      * @return string
      */
     private function buildUrl(string $type) : string
@@ -173,37 +201,28 @@ class MeteoController extends AbstractController
 
         return $url;
     }
-
-    /**
-     * @param $url
-     * @return mixed
-     */
-    private function getData($url)
-    {
-        $key = md5($url);
-        $content = $this->cache->get($key);
-        if (!$content) {
-            $content = $this->fetch($url);
-            $this->cache->set($key, $content, rand(1500, 2000));
-        }
-        return json_decode($content, true);
-    }
-
-    /**
-     * @param $url
-     * @return mixed
-     */
-    private function fetch($url)
-    {
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-        //curl_setopt_array($ch, $this->curlOptions);
-
-        $content = curl_exec($ch);
-        curl_close($ch);
-
-        return $content;
-    }
 }
+
+
+/* OLD API
+try {
+    $owm = new OpenWeatherMap(getenv("OWM_API_KEY"));
+
+    $weather = $cache->get("weather", null);
+    if (!$weather) {
+        $weather = $owm->getWeather('Rouen,FR', "metric", "fr");
+        $cache->set("weather", $weather, 3600);
+    }
+
+    $forecast = $cache->get("forecast", null);
+    if (!$forecast) {
+        $forecast = $owm->getWeatherForecast('Rouen,FR', "metric", "fr", null, 5);
+        $cache->set("forecast", $forecast, 8000);
+    }
+
+}
+catch (\Exception $e) {
+    $weather = null;
+    $forecast = null;
+}
+*/
