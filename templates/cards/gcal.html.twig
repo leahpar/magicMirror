@@ -1,0 +1,26 @@
+<div class="card gcal">
+
+    {% for event in events %}
+        <p>
+            <span class="date">
+                {% if event.start.dateTime is not null %}
+                    {% if event.start.dateTime|ddate is null %}
+                        {{ event.start.dateTime|date("d/m H:i") }}
+                    {% else %}
+                        {{ event.start.dateTime|ddate|capitalize }} {{ event.start.dateTime|date("H:i") }}
+                    {% endif %}
+                {% else %}
+                    {% if event.start.date|ddate is null %}
+                        {{ event.start.date|date("d/m") }}
+                    {% else %}
+                        {{ event.start.date|ddate|capitalize }}
+                    {% endif %}
+                {% endif %}
+            </span>
+            <br>
+            <span class="match">{{ event.summary }}</span>
+            <!--<em>{{ event.location }}</em>-->
+        </p>
+    {% endfor %}
+
+</div>
