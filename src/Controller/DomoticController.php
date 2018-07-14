@@ -23,6 +23,8 @@ class DomoticController extends AbstractController
     }
 
 
+
+
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      */

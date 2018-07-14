@@ -6,6 +6,8 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "cmfcmf/openweathermap-php-api": "^2.3",
+        "cocur/slugify": "^3.1",
+        "duncan3dc/sonos": "^1.9",
         "google/apiclient": "^2.0",
         "influxdb/influxdb-php": "^1.14",
         "johngrogg/ics-parser": "^2.1",
@@ -19,6 +21,7 @@
         "symfony/framework-bundle": "^4.1",
         "symfony/lts": "^4@dev",
         "symfony/twig-bundle": "^4.1",
+        "symfony/web-server-bundle": "^4.1",
         "symfony/yaml": "^4.1",
         "twig/extensions": "^1.5"
     },

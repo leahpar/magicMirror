@@ -17,5 +17,14 @@ class DefaultController extends AbstractController
         return $this->render('index.html.twig', []);
     }
 
+    /**
+     * @Route("/raf")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function raf()
+    {
+        return $this->render('raf.html.twig', []);
+    }
+
 
 }

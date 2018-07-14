@@ -39,7 +39,6 @@ class SimpleApiController extends AbstractController
                 "value" => $bt["bpi"]["EUR"]["rate_float"]
             ];
 
-
             $url = "http://free.currencyconverterapi.com/api/v5/convert?q=USD_EUR&compact=y";
             $usd = $this->api->getData($url, rand(150, 300));
             $change[] = [

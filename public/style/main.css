@@ -136,4 +136,27 @@ h2 {
   .bourse .change.down {
     color: #B0413E; }
 
+.phue {
+  text-align: right; }
+  .phue ul {
+    list-style: none;
+    padding: 0; }
+  .phue li {
+    margin-bottom: 20px; }
+  .phue .big {
+    color: #FFFFFF;
+    font-size: 2em; }
+  .phue .small {
+    color: #AAAAAA;
+    font-size: 1em; }
+  .phue .status {
+    display: inline-block;
+    border-radius: 50px;
+    height: 20px;
+    width: 20px; }
+    .phue .status.on {
+      background-color: #4cae4c; }
+    .phue .status.off {
+      background-color: #B0413E; }
+
 /*# sourceMappingURL=main.css.map */

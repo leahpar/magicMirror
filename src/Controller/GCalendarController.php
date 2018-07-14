@@ -16,7 +16,7 @@ class GCalendarController  extends AbstractController
 
 
     /**
-     * @Route("/test")
+     * @Route("/test-gcal")
      * @throws \Google_Exception
      */
     public function calendarAction()

@@ -1,0 +1,19 @@
+<div class="card phue">
+    {% for group in groups if group.id in [1, 2, 7] %}
+
+    <span class="big">{{ group.name }} [#{{ group.id }}]</span>
+        <span class="status {{ group.lightOn ? "on" : "off" }}"></span>
+    <ul>
+        {% for id in group.lightIds %}
+        {% set light = lights[id] %}
+        <li>
+            <span class="small">{{ light.name }}</span>
+            <span class="status {{ light.isOn ? "on" : "off" }}"></span>
+        </li>
+        {% endfor %}
+
+    </ul>
+    {% endfor %}
+</div>
+
+

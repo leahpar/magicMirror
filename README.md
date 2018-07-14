@@ -5,7 +5,6 @@ Installation
 Raspbian 
 --------
 
-
 ### Network
 
 ```
@@ -13,7 +12,9 @@ Raspbian
 sudo echo "iwconfig wlan0 power off" >> /etc/rc.local
 ```
 
-wpa_supplicant.conf :
+
+`wpa_supplicant.conf` :
+
 ```
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
@@ -25,17 +26,54 @@ network={
 }
 ```
 
+### Buster 
 
-### Some stuff
+(for php 7.2)
+
+`/etc/apt/sources.list.d/buster.list` :
+
+```
+deb http://raspbian.raspberrypi.org/raspbian/ buster main contrib non-free rpi
+```
+
+
+`/etc/apt/preferences.d/40buster` :
+```
+Package: *
+Pin: release a=buster
+Pin-Priority: 100
+
+Package: php*
+Pin: release a=buster
+Pin-Priority: 900
+```
 
 ```
 sudo apt update
 sudo apt upgrade
-
-sudo apt install php-cgi git 
+sudo apt autoremove
 ```
 
-### MagicMirror
+
+PHP 7.2
+-------
+
+```
+sudo apt install php-cgi php-xml php-mbstring php-curl php-intl
+```
+
+(sudo) `/etc/php/7.2/cli/php.ini`:
+
+```
+[Date]
+date.timezone = Europe/Paris
+```
+
+
+MagicMirror
+-----------
+
+### Install
 
 ```
 wget -O composer https://getcomposer.org/composer.phar
@@ -58,18 +96,48 @@ vi .env
 ### Start
 
 ```
-cd ~/magicMirror/public
-php -S localhost:8000 
+cd ~/magicMirror
+#php -S localhost:8000 public/
+php bin/console server:start 
 ```
 
 ```
 /usr/bin/chromium-browser --incognito --start-maximized --kiosk http://localhost:8000
 ```
 
-screensaver
-
 ### Autostart
 
-### Autoupdate
+Autostart chromium in fullscreen / remove screensaver 
+
+https://blog.gordonturner.com/2017/07/22/raspberry-pi-full-screen-browser-raspbian-july-2017/
+
+
+```
+sudo apt install unclutter x11-xserver-utils
+```
+
+- `unclutter` is used to hide the mouse cursor
+- `x11-xserver-utils` installs xset, which is used to disable screen blanking
+
+
+`.config/lxsession/LXDE-pi/autostart`:
+
+```
+# COMMENT THIS
+@xscreensaver -no-splash
+```
+```
+# ADD THIS
+@/usr/bin/chromium-browser --incognito --start-maximized --kiosk http://localhost:8000
+@unclutter
+@xset s off
+@xset s noblank
+@xset -dpms
+```
+
+Note: quit chromuim with `shift control q`
+
+
+### Auto-update
 
 git pull

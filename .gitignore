@@ -19,3 +19,7 @@
 client_secret.json
 credentials.json
 
+
+###> symfony/web-server-bundle ###
+/.web-server-pid
+###< symfony/web-server-bundle ###

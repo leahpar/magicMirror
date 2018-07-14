@@ -15,7 +15,6 @@
             {{ render(controller("App\\Controller\\MeteoController::currentMeteoAction")) }}
             <div>
             {{ render(controller("App\\Controller\\DiversController::horlogeAction")) }}
-            {{ render(controller("App\\Controller\\SonosController::sonosAction")) }}
             </div>
         </div>
 
@@ -26,8 +25,7 @@
             </div>
 
             <div>
-                {#{{ render(controller("App\\Controller\\DomoticController::statusAction")) }}#}
-                {{ render(controller("App\\Controller\\PhueController::phueAction")) }}
+                {{ render(controller("App\\Controller\\DomoticController::statusAction")) }}
                 {{ render(controller("App\\Controller\\SimpleApiController::changeAction")) }}
                 {{ render(controller("App\\Controller\\TradingController::bourseAction")) }}
             </div>

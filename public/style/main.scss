@@ -153,6 +153,7 @@ h2 {
 
   }
 }
+
 .change {
   text-align: right;
 
@@ -213,6 +214,42 @@ h2 {
     }
     &.down {
       color: #B0413E;
+    }
+  }
+
+}
+
+
+
+.phue {
+
+  text-align: right;
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  li {
+    margin-bottom: 20px;
+  }
+  .big {
+    color: $color1;
+    font-size: 2em;
+  }
+  .small {
+    color: $color2;
+    font-size: 1em;
+  }
+  .status {
+    display: inline-block;
+    border-radius: 50px;
+    height: 20px;
+    width: 20px;
+
+    &.on {
+      background-color: #4cae4c;
+    }
+    &.off {
+      background-color: #B0413E;
     }
   }
 

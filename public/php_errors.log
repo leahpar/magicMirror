@@ -1,0 +1,1 @@
+[10-Jul-2018 14:37:09 Europe/Paris] PHP Fatal error:  Cannot redeclare App\Controller\PhueController::phueAction() in /Users/raphael/projets/magicmirror/src/Controller/PhueController.php on line 25

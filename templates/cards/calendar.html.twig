@@ -1,5 +1,4 @@
 <div class="card fifa">
-    <img class="logo" src="{{ asset('img/fifa-2018.png') }}" width="300px">
     <div class="gradientback"></div>
     {% for event in events %}
         <p>
@@ -12,7 +11,8 @@
             </span>
             <br>
             <span class="match">{{ event.summary }}</span>
-            <!--<em>{{ event.location }}</em>-->
+            <br>
+            <em>{{ event.location }}</em>
         </p>
     {% endfor %}
 
