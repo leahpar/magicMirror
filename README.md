@@ -59,7 +59,7 @@ PHP 7.2
 -------
 
 ```
-sudo apt install php-cgi php-xml php-mbstring php-curl php-intl
+sudo apt install php-cgi php-xml php-mbstring php-curl php-intl php-soap
 ```
 
 (sudo) `/etc/php/7.2/cli/php.ini`:
@@ -90,8 +90,15 @@ vi .env
 ```
 
 ```
+cd vendor
+git clone https://github.com/sergiocosus/IEXTrading.git
+
+```
+
+```
 ../composer install
 ```
+
 
 ### Start
 
@@ -120,7 +127,7 @@ sudo apt install unclutter x11-xserver-utils
 - `x11-xserver-utils` installs xset, which is used to disable screen blanking
 
 
-`.config/lxsession/LXDE-pi/autostart`:
+`/home/pi/.config/lxsession/LXDE-pi/autostart`:
 
 ```
 # COMMENT THIS
@@ -128,11 +135,26 @@ sudo apt install unclutter x11-xserver-utils
 ```
 ```
 # ADD THIS
-@/usr/bin/chromium-browser --incognito --start-maximized --kiosk http://localhost:8000
-@unclutter
-@xset s off
-@xset s noblank
-@xset -dpms
+@/home/pi/magicMirrorStart
+```
+
+
+`/home/pi/magicMirrorStart`: 
+
+```
+#!/bin/bash
+
+sleep 10
+usr/bin/php ~/magicMiror/bin/console server:start
+
+sleep 10
+/usr/bin/chromium-browser --incognito --start-maximized --kiosk http://localhost:8000 &
+
+unclutter -jitter 50 &
+
+xset s off
+xset s noblank
+xset -dpms
 ```
 
 Note: quit chromuim with `shift control q`
